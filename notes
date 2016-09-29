@@ -1,6 +1,0 @@
-To use github with website:
-
-Settings > githubpages > source > pick master branch > github pages > link
-
-browser sync:
-c:\Tech\rails-angular\rails-angular-coursera>browser-sync start --server --directory -- files "**/*"
