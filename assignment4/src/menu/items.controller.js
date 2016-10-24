@@ -1,8 +1,8 @@
 (function () {
 'use strict';
 
-angular.module('Menu')
-.controller('CategoryController', CategoryController).
+angular.module('MenuApp')
+.controller('ItemsController', ItemsController).
 constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
 
 // 'item' is injected through state's resolve
@@ -13,9 +13,9 @@ constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
   // categoryList.items = items;
 // } 
 
-CategoryController.$inject = ['items'];
+ItemsController.$inject = ['items'];
 
-   function CategoryController(items) {
+   function ItemsController(items) {
      var itemList = this;
      itemList.items = items.data.menu_items;
      itemList.categoryName = items.data.category.name;

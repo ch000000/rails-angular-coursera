@@ -1,48 +1,43 @@
 (function () {
 'use strict';
 
-angular.module('Menu')
+angular.module('MenuApp')
 .config(RoutesConfig);
 
 RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
-function RoutesConfig($stateProvider, $urlRouterProvider) {
-
-  // Redirect to home page if no other URL matches
-  $urlRouterProvider.otherwise('/');
-
-  // *** Set up UI states ***
-  $stateProvider
-
-  // Home page
+function RoutesConfig($stateProvider, $urlRouterProvider) { 
+  
+  $urlRouterProvider.otherwise('/'); 
+  
+  $stateProvider 
   .state('home', {
     url: '/',
     templateUrl: 'src/menu/templates/home.template.html'
   })
-
-  // Premade list page
-  .state('mainList', {
-      url: '/main-list',
+ 
+  .state('categories', {
+      url: '/categories',
       templateUrl: 'src/menu/templates/menu.template.html',
-      controller: 'MenuController as mainList',
+      controller: 'CategoriesController as categories',
       resolve: {
-         items: ['MenuService', function (MenuService) {
-            return MenuService.getCategories();
+         items: ['MenuDataService', function (MenuDataService) {
+            return MenuDataService.getAllCategories();
          }]
       }
    }) 
-   .state('categoryDetail', {
-      url: '/category-detail/{itemId}',
+   .state('category', {
+      url: '/category/{itemId}',
       templateUrl: 'src/menu/templates/category.template.html',
-      controller: 'CategoryController as categoryDetail',
+      controller: 'ItemsController as categoryItems',
       resolve: {
-         items: ['$stateParams', 'MenuService', 
-            function ($stateParams, MenuService) {
-               return MenuService.getCategories()
+         items: ['$stateParams', 'MenuDataService', 
+            function ($stateParams, MenuDataService) {
+               return MenuDataService.getAllCategories()
                .then(function (items) {
                   return items.data[$stateParams.itemId]
                })
                .then (function (category){  
-                  return MenuService.getItems(category.short_name);  
+                  return MenuDataService.getItemsForCategory(category.short_name);  
                })  
             }
          ]
@@ -52,42 +47,3 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 
 })();
 
-// .state('categoryDetail', {
-      // url: '/category-detail/{categoryId}',
-      // templateUrl: 'src/menu/templates/category.template.html',
-      // controller: 'CategoryController as categoryDetail',
-      // resolve: {
-         // items: ['$stateParams', 'MenuService', 
-            // function ($stateParams, MenuService) {
-               // return MenuService.getCategories()
-               // .then(function (items) {
-                  // return items[$stateParams.itemId]  
-                  // .then (function (category){ 
-                     // return MenuService.getItems(category.shortName)
-                     // .then(function (items) {
-                        // return items.data.menu_items;
-                     // }); 
-                  // }); 
-               // })
-            // }
-         // ]
-      // }
-   // });  
-   
-   
-// resolve: {
-         // items: ['$stateParams', 'MenuService', 
-            // function ($stateParams, MenuService) {
-               // return MenuService.getCategories()
-               // .then (function (items) {
-                  // return items[$stateParams.itemId]
-                  // .then (function (items) {
-                     // MenuService.getItems(items[$stateParams.itemId])
-                     // .then(function (items) {
-                        // return items.data.menu_items;
-                     // });
-                  // }); 
-               // });
-            // }
-         // ]
-      // }

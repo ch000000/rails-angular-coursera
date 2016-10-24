@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='Menu'>
+<html ng-app='MenuApp'>
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styles.css">
@@ -15,7 +15,8 @@
     <script src="lib/angular-ui-router.min.js"></script>
 
     <!-- Modules -->
-    <script src="src/menu/menu.module.js"></script>
+    <script src="src/menu/menuapp.module.js"></script>
+    <script src="src/menu/data.module.js"></script>
 
     <!-- Routes -->
     <script src="src/routes.js"></script>
@@ -23,10 +24,10 @@
     <!-- 'ShoppingList' module artifacts -->
     <script src="src/menu/categories.component.js"></script>
     <script src="src/menu/category.component.js"></script> 
-    <script src="src/menu/menu-items.component.js"></script>
-    <script src="src/menu/menu.controller.js"></script>
-    <script src="src/menu/category.controller.js"></script> 
-    <script src="src/menu/menu.service.js"></script>
+    <script src="src/menu/items.component.js"></script>
+    <script src="src/menu/categories.controller.js"></script>
+    <script src="src/menu/items.controller.js"></script> 
+    <script src="src/menu/menudata.service.js"></script>
 
   </body>
 </html>
