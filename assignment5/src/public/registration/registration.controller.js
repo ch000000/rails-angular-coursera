@@ -3,12 +3,16 @@
 
    angular.module('public')
    .controller('RegistrationController', RegistrationController);
+   
+   RegistrationController.$inject = ['MenuService'];
+   function RegistrationController(MenuService) {
+      var reg = this;
+      //reg.menuItem = menuItem;
+      var service = MenuService;
 
-   function RegistrationController() {
-     var reg = this;
-
-     reg.submit = function () {
-       reg.completed = true;
-     };
-   }  
+      reg.submit = function () {  
+         reg.menuItem =  MenuService.getMenuItem(1);  
+      };
+   } 
 })();
+

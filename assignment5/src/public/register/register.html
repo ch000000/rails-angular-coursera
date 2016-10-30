@@ -7,7 +7,8 @@
           ng-model="reg.user.firstname"
           required
           minlength="4"
-          ng-maxlength="10"> 
+          ng-maxlength="10">
+          {{reg.user.firstname}}
          
           <span
             ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
@@ -16,7 +17,9 @@
           <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
             Username must not be longer than 10 characters
           </span>
-          <br> 
+          <br>
+          
+         
            <!--
           <input type="text" name="lastname" placeholder="last name"
           ng-model="reg.user.lastname"
@@ -67,20 +70,19 @@
 
          <!--<button
          ng-disabled="regForm.$invalid"
-          ng-click="reg.submit()">Submit</button> -->  
-           <button  ui-sref="registered">register </button> 
-           
+          ng-click="reg.submit()">Submit</button> --> 
+           <button ng-click="reg.submit()">Submit</button>
+         {{menuItem}}
           <!--<div style="margin-top: 10px;">
-            Form valid? {{ regForm.$valid }} 
+            Form valid? {{ regForm.$valid }}
           </div> -->
       </form>
-    </fieldset>  
-       <div id="info">  
-    No such menu number exists
-   
-    </div>
- 
+    </fieldset>
 
+    <div id="info" ng-if="reg.completed">
+      Username: {{ reg.user.firstname}} <br>
+      <!--  Email: {{ reg.user.email}} <br>
+      Phone: {{ reg.user.phone }} -->
     </div>
             
 </div>
