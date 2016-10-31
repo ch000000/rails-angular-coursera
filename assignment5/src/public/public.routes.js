@@ -42,19 +42,31 @@
          }
        })
        .state('register', { 
-         url: '/register',
+         url: '/register/',
          templateUrl: 'src/public/registration/registration.html',
          controller: 'RegistrationController',
-         controllerAs: 'reg'
+         controllerAs: 'reg', 
+         params: {
+            firstname: null
+         },
+          resolve:{
+            firstname: ['$stateParams', function($stateParams){
+                return $stateParams.firstname;
+            }]
+         }
        }) 
        .state('registered', { 
          url: '/register',
-         templateUrl: 'src/public/registration/registered.html',
-         controller: 'RegisteredController',
-         controllerAs: 'reg', 
+         templateUrl: 'src/public/registration/registered.html',  
+         controller: 'RegistrationController',
+         controllerAs: 'rest', 
+         params: {
+            firstname: 'boo'
+         },
          resolve: {
             menuItem: ['$stateParams','MenuService', function ($stateParams, MenuService) {
-               return MenuService.getMenuItem(1);
+               console.log($stateParams);
+               return MenuService.getMenuItem($stateParams.firstname);
             }]
          }
        });

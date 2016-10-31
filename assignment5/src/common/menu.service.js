@@ -38,7 +38,8 @@
                 // return item.id === itemId;
             // }      
             // return response.data.menu_items.find(findItem);
-         // });  
+         // }); 
+         //console.log (itemId);         
          return $http.get('https://chrailsangular.herokuapp.com/menu_items/A1.json')
           .then(function (response) {
             return response.data

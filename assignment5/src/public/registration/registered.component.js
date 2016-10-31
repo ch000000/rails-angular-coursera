@@ -11,9 +11,11 @@ angular.module('public')
 }); 
 
 RegisteredController.$inject = ['ApiPath'];
-function RegisteredController(ApiPath) {
+RegisteredController.$inject = ['firstname'];
+function RegisteredController(ApiPath, firstname) {
   var $ctrl = this;
-  $ctrl.basePath = ApiPath;
+  $ctrl.basePath = ApiPath; 
+  console.log(firstname);
 }
 
 })();

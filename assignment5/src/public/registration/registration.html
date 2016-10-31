@@ -1,4 +1,4 @@
-<div class="container registration" >   
+  
      <fieldset>
       <legend>Register</legend>
       <form name='regForm' novalidate>
@@ -67,20 +67,14 @@
 
          <!--<button
          ng-disabled="regForm.$invalid"
-          ng-click="reg.submit()">Submit</button> -->  
-           <button  ui-sref="registered">register </button> 
+          ng-click="reg.submit()">Submit</button> --> 
+           <button ui-sref="registered({firstname:'booboo'})">register </button>  
+          
            
           <!--<div style="margin-top: 10px;">
             Form valid? {{ regForm.$valid }} 
           </div> -->
       </form>
-    </fieldset>  
-       <div id="info">  
-    No such menu number exists
-   
-    </div>
- 
-
-    </div>
+    </fieldset>   
             
 </div>
