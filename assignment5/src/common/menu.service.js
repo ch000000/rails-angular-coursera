@@ -58,7 +58,15 @@
          // }) 
          
       }; 
+  
+   
+    service.recUser = function (user) {  
+      $scope.user = user; 
    }
-
+    service.getUser = function () {  
+     return $scope.user;
+   }
+   
+ }
    
 })();

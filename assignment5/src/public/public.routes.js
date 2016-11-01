@@ -45,28 +45,22 @@
          url: '/register/',
          templateUrl: 'src/public/registration/registration.html',
          controller: 'RegistrationController',
-         controllerAs: 'reg', 
-         params: {
-            firstname: null
-         },
-          resolve:{
-            firstname: ['$stateParams', function($stateParams){
-                return $stateParams.firstname;
-            }]
-         }
+         controllerAs: 'reg'
        }) 
        .state('registered', { 
          url: '/register',
          templateUrl: 'src/public/registration/registered.html',  
-         controller: 'RegistrationController',
+         controller: 'RegisteredController',
          controllerAs: 'rest', 
          params: {
-            firstname: 'boo'
+            firstname: 'boo',
+            user: {}
          },
          resolve: {
             menuItem: ['$stateParams','MenuService', function ($stateParams, MenuService) {
-               console.log($stateParams);
-               return MenuService.getMenuItem($stateParams.firstname);
+               var user = $stateParams.user;
+               user.fav = MenuService.getMenuItem($stateParams.user.firstname); 
+               return user;
             }]
          }
        });

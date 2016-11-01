@@ -68,7 +68,8 @@
          <!--<button
          ng-disabled="regForm.$invalid"
           ng-click="reg.submit()">Submit</button> --> 
-           <button ui-sref="registered({firstname:'booboo'})">register </button>  
+          {{reg.user}}
+           <button ui-sref="registered({user: reg.user})">register </button>  
           
            
           <!--<div style="margin-top: 10px;">

@@ -9,13 +9,13 @@ angular.module('public')
   },
   controller : RegisteredController
 }); 
-
-RegisteredController.$inject = ['ApiPath'];
-RegisteredController.$inject = ['firstname'];
-function RegisteredController(ApiPath, firstname) {
-  var $ctrl = this;
-  $ctrl.basePath = ApiPath; 
-  console.log(firstname);
-}
+// .controller 
+// RegisteredController.$inject = ['ApiPath'];
+// RegisteredController.$inject = ['firstname'];
+// function RegisteredController(ApiPath, firstname) {
+  // var $ctrl = this;
+  // $ctrl.basePath = ApiPath; 
+  // console.log(firstname);
+// }
 
 })();

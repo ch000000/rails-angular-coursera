@@ -8,7 +8,6 @@ angular.module('public')
     menuItem: '='
   },
   controller : RegistrationController
-}); 
-
+})  
  
 })();
