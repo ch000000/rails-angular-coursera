@@ -5,10 +5,8 @@
    .controller('RegistrationController', RegistrationController);
    
  
-   function RegistrationController() { 
+   function RegistrationController() {  
       
-      var reg = function () {
-      console.log('test') } 
    } 
 })();
 

@@ -18,15 +18,4 @@ RegisteredController.$inject = ['favDish', 'MenuService','$stateParams'];
       } 
        return regUser;
    } 
-})();
-
-
-// RegisteredController.$inject = ['ApiPath'];
-// RegisteredController.$inject = ['firstname'];
-// function RegisteredController(ApiPath, firstname) {
-  // var $ctrl = this;
-  // $ctrl.basePath = ApiPath; 
-  // console.log(firstname);
-// }
-
-// })();
+})(); 

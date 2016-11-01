@@ -33,13 +33,7 @@
          if (user) {
             config.params = {'user': user};
          } 
-         else return 'noUser';
-         // return $http.get(ApiPath + '/menu_items.json', config).then(function (response) {
-            // function findItem(item) { 
-                // return item.id === itemId;
-            // }      
-            // return response.data.menu_items.find(findItem);
-         // }); 
+         else return 'noUser'; 
          console.log (user);         
          return $http.get('https://chrailsangular.herokuapp.com/menu_items/' + user.favDishId + '.json')
           .then(function (response) {
@@ -49,16 +43,7 @@
          .catch(function(response) {
            console.log('ERROR', response.status, response.data);
            return response.data
-         });
-         // return $http.get('https://https//chrailsangular.herokuapp.com.herokuapp.com/menu_items/' + itemId)
-         // .then(function (response) {
-            // return response
-         // })
-         // .catch(function(response) {
-           // console.log('ERROR', response.status, response.data);
-           // return response 
-         // }) 
-         
+         }); 
       }; 
   
    var user = {};

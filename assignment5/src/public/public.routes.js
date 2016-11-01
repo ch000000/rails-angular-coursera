@@ -49,7 +49,7 @@
        }) 
        .state('registered', { 
          url: '/register',
-         templateUrl: 'src/public/registration/registered.html',  
+         templateUrl: 'src/public/registered/registered.html',  
          controller: 'RegisteredController',
          controllerAs: 'regUser', 
          params: { 

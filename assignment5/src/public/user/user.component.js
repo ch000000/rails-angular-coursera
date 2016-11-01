@@ -15,6 +15,7 @@ function UserController(user,ApiPath) {
   var $ctrl = this;
   $ctrl.user = user;
   $ctrl.basePath = ApiPath;
+  
 }
 })();
 

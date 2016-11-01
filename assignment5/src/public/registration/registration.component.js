@@ -5,7 +5,7 @@ angular.module('public')
 .component('registration', {
   templateUrl: 'src/public/registration/registration.html',
   bindings: {
-    menuItem: '='
+    menuItem: '<'
   },
   controller : RegistrationController
 })  
