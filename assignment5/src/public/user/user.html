@@ -1,0 +1,28 @@
+<div class="container user">
+   <div ng-if="!userCtrl.user.favDish">
+      <a id="signUpButton" ui-sref="register"> Not Signed Up Yet. Sign up Now!</a> 
+   </div>
+   <div ng-if="userCtrl.user.favDish">
+     <h2 id="user" class="text-center">Your Profile</h2>
+     <div class="text-center">
+      <h4> Personal details</h4>
+         <div>
+            <span>First name: {{userCtrl.user.firstname}}</span><br>
+            <span>Last name: {{userCtrl.user.lastname}}</span><br>
+            <span>Email: {{userCtrl.user.email}}</span><br>
+            <span>Phone: {{userCtrl.user.phone}}</span><br>
+         </div>
+         <div>
+            <h4> Favorite Dish</h4>
+            <span>{{userCtrl.user.favDish.name}}</span><br> 
+            <span>{{userCtrl.user.favDish.description}}</span><br> 
+         </div>
+      </div>
+      <div class="row"> 
+         <div class="col-sm-6">
+            <img class="img-responsive" width="250"  ng-src="{{userCtrl.basePath}}/images/{{userCtrl.user.favDish.short_name}}.jpg" alt="{{userCtrl.user.favDish.name}}">
+         </div> 
+      </div>  
+   </div>
+ 
+</div>

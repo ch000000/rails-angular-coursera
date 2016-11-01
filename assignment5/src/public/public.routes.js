@@ -51,19 +51,34 @@
          url: '/register',
          templateUrl: 'src/public/registration/registered.html',  
          controller: 'RegisteredController',
-         controllerAs: 'rest', 
-         params: {
-            firstname: 'boo',
+         controllerAs: 'regUser', 
+         params: { 
             user: {}
          },
          resolve: {
-            menuItem: ['$stateParams','MenuService', function ($stateParams, MenuService) {
+            favDish: ['$stateParams','MenuService', function ($stateParams, MenuService) {
                var user = $stateParams.user;
-               user.fav = MenuService.getMenuItem($stateParams.user.firstname); 
-               return user;
+               return MenuService.getMenuItem($stateParams.user);  
             }]
          }
-       });
+       }) 
+       .state('userProfile', { 
+         url: '/user',
+         templateUrl: 'src/public/user/user.html',  
+         controller: 'UserController', 
+         controllerAs: 'userCtrl',
+         resolve: {
+            user: ['MenuService', function ( MenuService) { 
+               var theUser = MenuService.getUser(); 
+               if (!theUser) return 'noUser';
+               return MenuService.getMenuItem(theUser)
+               .then (function (favDish){
+                   theUser.favDish = favDish;
+                   return theUser;
+               } )
+            }]
+         }
+       }); 
    }
 })();
   

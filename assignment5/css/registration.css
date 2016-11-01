@@ -1,4 +1,11 @@
 .registration {
+   margin: 20px;
    color: black; 
-   background-color: white;
+   background-color: #E7E7E7;  
+   padding: 20px;   
+}
+.user a{
+   color: green; 
+   font-weight: bold; 
+   font-size: 20px;
 }

@@ -28,20 +28,22 @@
        });
      }; 
      
-     service.getMenuItem = function (itemId) {  
+     service.getMenuItem = function (user) {  
          var config = {};
-         if (itemId) {
-            config.params = {'id': itemId};
+         if (user) {
+            config.params = {'user': user};
          } 
+         else return 'noUser';
          // return $http.get(ApiPath + '/menu_items.json', config).then(function (response) {
             // function findItem(item) { 
                 // return item.id === itemId;
             // }      
             // return response.data.menu_items.find(findItem);
          // }); 
-         console.log (itemId);         
-         return $http.get('https://chrailsangular.herokuapp.com/menu_items/A1.json')
+         console.log (user);         
+         return $http.get('https://chrailsangular.herokuapp.com/menu_items/' + user.favDishId + '.json')
           .then(function (response) {
+             console.log(response.data);
             return response.data
          })
          .catch(function(response) {
@@ -59,12 +61,12 @@
          
       }; 
   
-   
-    service.recUser = function (user) {  
-      $scope.user = user; 
+   var user = {};
+    service.setUser = function (userDetails) {  
+      user.userDetails = userDetails; 
    }
     service.getUser = function () {  
-     return $scope.user;
+     return user.userDetails;
    }
    
  }
